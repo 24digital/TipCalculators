@@ -43,45 +43,66 @@ private RadioGroup buttonGroup;
 
         return super.onOptionsItemSelected(item);
     }
-    public void onClickFindAmount(View view)
-    {
-        view.refreshDrawableState();
-        buttonGroup = (RadioGroup)findViewById(R.id.buttonGroup);
-        userBill = (EditText)findViewById(R.id.bill_Form);
-        String temp = userBill.getText().toString();
-      double userBillAmnt =  Double.parseDouble(temp);
-      int i =  buttonGroup.getCheckedRadioButtonId();
+    public void onClickFindAmount(View view) {
 
-        tipAmount = (TextView)findViewById(R.id.tipValue);
-        totalAmount = (TextView)findViewById(R.id.totalValue);
-       Double tipTemp = 0.0;
+
+        buttonGroup = (RadioGroup) findViewById(R.id.buttonGroup);
+        userBill = (EditText) findViewById(R.id.bill_Form);
+        String temp = userBill.getText().toString();
+        double userBillAmnt = Double.parseDouble(temp);
+        int i = buttonGroup.getCheckedRadioButtonId();
+
+        tipAmount = (TextView) findViewById(R.id.tipValue);
+        totalAmount = (TextView) findViewById(R.id.totalValue);
+        Double tipTemp = 0.0;
         Double totalTemp = 0.0;
 
-        switch(i){
+        switch (i) {
             case 1:
-           tipTemp = userBillAmnt * .10;
-              totalTemp = userBillAmnt + tipTemp;
-                tipAmount.setText(String.valueOf(Math.round(tipTemp)));
+                tipTemp =  userBillAmnt * .10;
+                totalTemp = userBillAmnt + tipTemp;
+
+                totalTemp = castRoundTo2(totalTemp);
+                tipAmount.setText(String.valueOf(tipTemp));
                 totalAmount.setText(String.valueOf(totalTemp));
             case 2:
-           tipTemp = userBillAmnt * .15;
-           totalTemp = userBillAmnt + tipTemp;
-                tipAmount.setText(String.valueOf(Math.round(tipTemp)));
+                tipTemp = userBillAmnt * .15;
+                totalTemp = userBillAmnt + tipTemp;
+
+                totalTemp = castRoundTo2(totalTemp);
+                tipAmount.setText(String.valueOf(tipTemp));
                 totalAmount.setText(String.valueOf(totalTemp));
             case 3:
-            tipTemp = userBillAmnt * .18;
-          totalTemp = userBillAmnt + tipTemp;
-                tipAmount.setText(String.valueOf(Math.round(tipTemp)));
+                tipTemp = userBillAmnt * .18;
+                totalTemp = userBillAmnt + tipTemp;
+
+                totalTemp = castRoundTo2(totalTemp);
+                tipAmount.setText(String.valueOf(tipTemp));
                 totalAmount.setText(String.valueOf(totalTemp));
             case 4:
-           tipTemp = userBillAmnt * .20;
-              totalTemp = userBillAmnt + tipTemp;
-                tipAmount.setText(String.valueOf(Math.round(tipTemp)));
+                tipTemp = userBillAmnt * .20;
+                totalTemp = userBillAmnt + tipTemp;
+
+                totalTemp = castRoundTo2(totalTemp);
+                tipAmount.setText(String.valueOf(tipTemp));
                 totalAmount.setText(String.valueOf(totalTemp));
-                    default:
+            default:
         }
-
-
-
+        view.refreshDrawableState();
     }
+
+
+        public  double castRoundTo2(double d) {
+        return (long) (d * 100 + 0.5) / 100.0;
+    }
+
+        public static double round2(double d) {
+        return roundToFactor(d, 100);
+    }
+
+        public static double roundToFactor(double d, double f) {
+        return Math.round(d * f) / f;
+    }
+
+
 }
