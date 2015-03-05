@@ -91,7 +91,19 @@ private RadioGroup buttonGroup;
         view.refreshDrawableState();
     }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        CalculatorEngine engine = (CalculatorEngine) savedInstanceState.getSerializable("obj");
+        if (engine != null)
+            calculatorEngine = engine;
+    }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable("obj", calculatorEngine);
+    }
         public  double castRoundTo2(double d) {
         return (long) (d * 100 + 0.5) / 100.0;
     }
