@@ -110,5 +110,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/totalLabel"
-        android:layout_toRightOf="@+id/totalLabel" />
+        android:layout_toRightOf="@+id/totalLabel"
+        android:text="Hello" />
 </RelativeLayout>
