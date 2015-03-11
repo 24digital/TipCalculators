@@ -50,36 +50,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onClickFindAmount"
-            android:text="@string/ten_percent" />
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            android:text="@string/ten_percent"
+            android:id="@+id/ten"/>
+
         android:text="@string/eighteen_percent"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onClickFindAmount"
-            android:text="@string/fifteen_percent" />
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/eighteen_percent"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClickFindAmount"
-            android:text="@string/eighteen_percent" />
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/eighteen_percent"/>
+     android:id="@+id/fifteen"
+                 android:text="@string/fifteen_percent"/>
+
+
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onClickFindAmount"
-            android:text="@string/twenty_percent" />
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/eighteen_percent"/>
+            android:text="@string/eighteen_percent"
+            android:id="@+id/eighteen"/>
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickFindAmount"
+            android:text="@string/twenty_percent"
+            android:id="@+id/twenty"/>
+
     </RadioGroup>
     //Tip Label
 

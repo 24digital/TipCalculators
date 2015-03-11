@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -57,52 +58,59 @@ private RadioGroup buttonGroup;
         Double tipTemp = 0.0;
         Double totalTemp = 0.0;
 
-        switch (i) {
-            case 1:
+
+            boolean checked = ((RadioButton)view).isChecked();
+        switch (view.getId())
+        {
+            case R.id.ten:
                 tipTemp =  userBillAmnt * .10;
                 totalTemp = userBillAmnt + tipTemp;
 
                 totalTemp = castRoundTo2(totalTemp);
                 tipAmount.setText(String.valueOf(tipTemp));
                 totalAmount.setText(String.valueOf(totalTemp));
-            case 2:
-                tipTemp = userBillAmnt * .15;
+                break;
+            case R.id.eighteen:    tipTemp = userBillAmnt * .18;
                 totalTemp = userBillAmnt + tipTemp;
 
                 totalTemp = castRoundTo2(totalTemp);
                 tipAmount.setText(String.valueOf(tipTemp));
                 totalAmount.setText(String.valueOf(totalTemp));
-            case 3:
-                tipTemp = userBillAmnt * .18;
-                totalTemp = userBillAmnt + tipTemp;
-
-                totalTemp = castRoundTo2(totalTemp);
-                tipAmount.setText(String.valueOf(tipTemp));
-                totalAmount.setText(String.valueOf(totalTemp));
-            case 4:
+                break;
+            case R.id.twenty:
                 tipTemp = userBillAmnt * .20;
                 totalTemp = userBillAmnt + tipTemp;
 
                 totalTemp = castRoundTo2(totalTemp);
                 tipAmount.setText(String.valueOf(tipTemp));
                 totalAmount.setText(String.valueOf(totalTemp));
-            default:
+                break;
+            case R.id.fifteen:
+                tipTemp = userBillAmnt * .15;
+                totalTemp = userBillAmnt + tipTemp;
+
+                totalTemp = castRoundTo2(totalTemp);
+                tipAmount.setText(String.valueOf(tipTemp));
+                totalAmount.setText(String.valueOf(totalTemp));
+                break;
+
         }
+      
         view.refreshDrawableState();
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        CalculatorEngine engine = (CalculatorEngine) savedInstanceState.getSerializable("obj");
-        if (engine != null)
-            calculatorEngine = engine;
+   //     CalculatorEngine engine = (CalculatorEngine) savedInstanceState.getSerializable("obj");
+   //     if (engine != null)
+       //     calculatorEngine = engine;
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putSerializable("obj", calculatorEngine);
+    //    outState.putSerializable("obj", calculatorEngine);
     }
         public  double castRoundTo2(double d) {
         return (long) (d * 100 + 0.5) / 100.0;
